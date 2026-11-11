@@ -1,0 +1,29 @@
+# Node & Build Outputs
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# Package manager locks (заощаджує контекст, Claude не потрібно читати локфайли)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+
+# Environment & Local Secrets
+.env
+.env.*
+!.env.example
+
+# Git & IDE settings
+.git/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs & Cache
+*.log
+.eslintcache
+.turbo/

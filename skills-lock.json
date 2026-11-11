@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "skills": {
+    "backend-engineering": {
+      "source": "adtn0810/truestack",
+      "sourceType": "github",
+      "skillPath": "skills/backend-engineering/SKILL.md",
+      "computedHash": "3ad1e9efd5d216211916a8180ca057bcd966f071cea662dae3c721d3719c7056"
+    }
+  }
+}

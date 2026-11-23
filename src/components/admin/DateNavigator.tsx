@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { addDays, isSameDay } from "date-fns"
 import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react"
-import { enGB as calendarEn, uk as calendarUk } from "react-day-picker/locale"
+import { enGB as calendarEn, nl as calendarNl } from "react-day-picker/locale"
 
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
@@ -81,7 +81,7 @@ export function DateNavigator({ date, now, onChange }: DateNavigatorProps) {
                 setCalendarOpen(false)
               }}
               weekStartsOn={1}
-              locale={locale === "uk" ? calendarUk : calendarEn}
+              locale={locale === "nl" ? calendarNl : calendarEn}
               className="[--cell-size:2.25rem]"
             />
           </PopoverContent>

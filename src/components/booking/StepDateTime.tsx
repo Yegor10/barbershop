@@ -4,7 +4,7 @@ import { useMemo, useState } from "react"
 import { addDays } from "date-fns"
 import { CalendarX, Check } from "lucide-react"
 import { motion } from "motion/react"
-import { enGB as calendarEn, uk as calendarUk } from "react-day-picker/locale"
+import { enGB as calendarEn, nl as calendarNl } from "react-day-picker/locale"
 
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
@@ -119,7 +119,7 @@ export function StepDateTime({
           disabled={(date) => !isDateBookable(date, barberId, now)}
           weekStartsOn={1}
           showOutsideDays={false}
-          locale={locale === "uk" ? calendarUk : calendarEn}
+          locale={locale === "nl" ? calendarNl : calendarEn}
           className="w-full rounded-xl border border-white/10 bg-slate-900/60 p-3 [--cell-size:2.6rem]"
           classNames={{ root: "w-full" }}
         />
@@ -200,7 +200,7 @@ export function StepDateTime({
               key={selectedSlot.start}
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 font-medium text-amber-300"
+              className="inline-flex items-center gap-2 font-medium text-cyan-300"
             >
               <Check aria-hidden className="size-4" />
               {fmt.relativeDay(selectedSlot.start, now)},{" "}
@@ -228,13 +228,13 @@ function SlotOption({ slot, checked, onSelect }: SlotOptionProps) {
       whileTap={slot.available ? { scale: 0.95 } : undefined}
       className={cn(
         "numerals flex h-12 items-center justify-center rounded-lg border text-xl transition-colors",
-        "has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-amber-400",
+        "has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-cyan-400",
         slot.available
           ? "cursor-pointer border-white/12 bg-slate-900/60 hover:border-white/35 hover:bg-slate-800"
           : "border-transparent text-slate-600 line-through",
         checked &&
           slot.available &&
-          "border-amber-500 bg-amber-500 text-slate-950 hover:border-amber-500 hover:bg-amber-500"
+          "border-cyan-500 bg-cyan-500 text-slate-950 hover:border-cyan-500 hover:bg-cyan-500"
       )}
     >
       <input

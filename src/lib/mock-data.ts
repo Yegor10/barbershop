@@ -48,13 +48,14 @@ import type {
 
 export const SHOP = {
   name: "Strop & Steel",
-  tagline: { uk: "Барбершоп-майстерня", en: "Barber workshop" },
-  street: { uk: "вул. Кирилівська, 41", en: "41 Kyrylivska St" },
-  city: { uk: "Київ, Поділ", en: "Podil, Kyiv" },
-  phone: "+380 (44) 000-01-42",
-  phoneHref: "tel:+380440000142",
+  tagline: { nl: "Barberwerkplaats", en: "Barber workshop" },
+  street: { nl: "Kyrylivska-straat 41", en: "41 Kyrylivska St" },
+  city: { nl: "Podil, Kyiv", en: "Podil, Kyiv" },
+  // Fictional: Amsterdam subscriber numbers never start with 0.
+  phone: "+31 20 058 3716",
+  phoneHref: "tel:+31200583716",
   mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    "вулиця Кирилівська 41, Київ"
+    "Kyrylivska St 41, Kyiv"
   )}`,
   rating: 4.9,
   reviewCount: 1453,
@@ -81,7 +82,7 @@ export const SHOP_HOURS: Readonly<Record<number, DayHours | null>> = {
   6: { openMin: 10 * 60, closeMin: 20 * 60 },
 }
 
-/** Monday first, the way a week is read in Ukraine. */
+/** Monday first, the way a week is read in the Netherlands. */
 export const WEEK_ORDER = [1, 2, 3, 4, 5, 6, 0] as const
 
 /** Rules that shape the bookable time slots. */
@@ -105,9 +106,9 @@ export const SLOT_RULES = {
 export const SERVICES: readonly Service[] = [
   {
     id: "signature-haircut",
-    name: { uk: "Фірмова стрижка", en: "Signature Haircut" },
+    name: { nl: "Signature knipbeurt", en: "Signature Haircut" },
     description: {
-      uk: "Консультація, стрижка ножицями або машинкою, миття та укладання, яке легко повторити вдома.",
+      nl: "Advies, knippen met schaar of tondeuse, wassen en een stijl die je thuis makkelijk nadoet.",
       en: "Consultation, scissor or clipper cut, wash and a style you can repeat at home.",
     },
     category: "hair",
@@ -116,9 +117,9 @@ export const SERVICES: readonly Service[] = [
   },
   {
     id: "skin-fade",
-    name: { uk: "Скін-фейд", en: "Skin Fade" },
+    name: { nl: "Skin fade", en: "Skin Fade" },
     description: {
-      uk: "Перехід «у нуль» від лінії шиї, вручну розтушований до довжини, яку ви залишаєте зверху.",
+      nl: "Huidkort bij de nek en met de hand vervloeid naar de lengte die je bovenop houdt.",
       en: "Foil-close at the neckline, blended by hand up to the length you keep on top.",
     },
     category: "hair",
@@ -127,9 +128,9 @@ export const SERVICES: readonly Service[] = [
   },
   {
     id: "buzz-line-up",
-    name: { uk: "Під машинку з окантовкою", en: "Buzz & Line-Up" },
+    name: { nl: "Buzzcut met line-up", en: "Buzz & Line-Up" },
     description: {
-      uk: "Одна насадка по всій голові та чітка окантовка лінії росту бритвою.",
+      nl: "Eén opzetkam over het hele hoofd en een messcherpe lijn langs de haargrens.",
       en: "One guard all over with a razor-sharp edge at the hairline.",
     },
     category: "hair",
@@ -138,9 +139,9 @@ export const SERVICES: readonly Service[] = [
   },
   {
     id: "grey-blending",
-    name: { uk: "Камуфляж сивини", en: "Grey Blending" },
+    name: { nl: "Grijs camoufleren", en: "Grey Blending" },
     description: {
-      uk: "Напівперманентне тонування, що пом’якшує сивину без помітної межі відростання.",
+      nl: "Semipermanente kleuring die grijs verzacht zonder zichtbare uitgroei.",
       en: "Semi-permanent colour that softens grey without leaving a dye line.",
     },
     category: "hair",
@@ -150,11 +151,11 @@ export const SERVICES: readonly Service[] = [
   {
     id: "beard-sculpting",
     name: {
-      uk: "Моделювання бороди і гарячий рушник",
+      nl: "Baard modelleren met hete handdoek",
       en: "Beard Sculpting & Hot Towel",
     },
     description: {
-      uk: "Форма, перехід і контур бороди, наостанок гарячий рушник та олія.",
+      nl: "Vorm, fade en strakke lijnen in de baard, afgerond met een hete handdoek en verzorgende olie.",
       en: "Shape, fade and line the beard, then a hot towel and conditioning oil.",
     },
     category: "beard",
@@ -163,9 +164,9 @@ export const SERVICES: readonly Service[] = [
   },
   {
     id: "royal-shave",
-    name: { uk: "Королівське гоління", en: "Royal Shave" },
+    name: { nl: "Royal shave", en: "Royal Shave" },
     description: {
-      uk: "Гоління небезпечною бритвою з теплою піною, трьома гарячими рушниками та холодним каменем наприкінці.",
+      nl: "Scheren met het open mes, warm schuim, drie hete handdoeken en een koude steen als afsluiter.",
       en: "Straight-razor shave with warm lather, three hot towels and a cold stone finish.",
     },
     category: "beard",
@@ -174,9 +175,9 @@ export const SERVICES: readonly Service[] = [
   },
   {
     id: "father-son",
-    name: { uk: "Комплекс «Батько і син»", en: "Father & Son Package" },
+    name: { nl: "Vader en zoon-pakket", en: "Father & Son Package" },
     description: {
-      uk: "Дві стрижки в сусідніх кріслах: дорослому та дитині до дванадцяти років.",
+      nl: "Twee knipbeurten in naast elkaar staande stoelen: één volwassene en één kind tot twaalf jaar.",
       en: "Two cuts in neighbouring chairs: one adult, one under twelve.",
     },
     category: "package",
@@ -185,9 +186,9 @@ export const SERVICES: readonly Service[] = [
   },
   {
     id: "scalp-treatment",
-    name: { uk: "Пілінг і масаж голови", en: "Scalp Scrub & Massage" },
+    name: { nl: "Hoofdhuidscrub en massage", en: "Scalp Scrub & Massage" },
     description: {
-      uk: "Відлущувальний скраб і десятихвилинний масаж. Додається до будь-якої стрижки.",
+      nl: "Exfoliërende scrub en een massage van tien minuten. Te combineren met elke knipbeurt.",
       en: "Exfoliating scrub and a ten-minute massage. Add it to any cut.",
     },
     category: "package",
@@ -225,20 +226,20 @@ export function totalsFor(serviceIds: readonly string[]): {
 export const BARBERS: readonly Barber[] = [
   {
     id: "illia",
-    name: { uk: "Ілля Бережний", en: "Illia Berezhnyi" },
-    title: { uk: "Майстер-барбер", en: "Master Barber" },
+    name: { nl: "Illia Berezhnyi", en: "Illia Berezhnyi" },
+    title: { nl: "Master barber", en: "Master Barber" },
     bio: {
-      uk: "Заснував майстерню у 2014 році. Спершу береться за ножиці й лише потім за машинку.",
+      nl: "Richtte de werkplaats in 2014 op. Pakt eerst de schaar en pas als laatste de tondeuse.",
       en: "Founded the workshop in 2014. Cuts with scissors first and reaches for clippers last.",
     },
-    bookingCta: { uk: "Записатися до Іллі", en: "Book with Illia" },
+    bookingCta: { nl: "Boek bij Illia", en: "Book with Illia" },
     rating: 4.9,
     reviewCount: 412,
     yearsExperience: 14,
     specialties: [
-      { uk: "Стрижки ножицями", en: "Scissor cuts" },
-      { uk: "Моделювання бороди", en: "Beard sculpting" },
-      { uk: "Небезпечна бритва", en: "Straight-razor shaves" },
+      { nl: "Knippen met de schaar", en: "Scissor cuts" },
+      { nl: "Baard modelleren", en: "Beard sculpting" },
+      { nl: "Scheren met het open mes", en: "Straight-razor shaves" },
     ],
     daysOff: [0, 1],
     photo: photoIllia,
@@ -246,20 +247,20 @@ export const BARBERS: readonly Barber[] = [
   },
   {
     id: "danylo",
-    name: { uk: "Данило Вовк", en: "Danylo Vovk" },
-    title: { uk: "Старший барбер", en: "Senior Barber" },
+    name: { nl: "Danylo Vovk", en: "Danylo Vovk" },
+    title: { nl: "Senior barber", en: "Senior Barber" },
     bio: {
-      uk: "Кожен фейд розтушовує вручну і чесно скаже, що витримає ваша лінія росту.",
+      nl: "Vervloeit elke fade met de hand en zegt eerlijk wat bij jouw haargrens past.",
       en: "Blends every fade by hand and will tell you honestly what your hairline can carry.",
     },
-    bookingCta: { uk: "Записатися до Данила", en: "Book with Danylo" },
+    bookingCta: { nl: "Boek bij Danylo", en: "Book with Danylo" },
     rating: 4.8,
     reviewCount: 356,
     yearsExperience: 9,
     specialties: [
-      { uk: "Скін-фейди", en: "Skin fades" },
-      { uk: "Текстурні кропи", en: "Textured crops" },
-      { uk: "Окантовка", en: "Line-ups" },
+      { nl: "Skin fades", en: "Skin fades" },
+      { nl: "Textured crops", en: "Textured crops" },
+      { nl: "Line-ups", en: "Line-ups" },
     ],
     daysOff: [2],
     photo: photoDanylo,
@@ -267,20 +268,20 @@ export const BARBERS: readonly Barber[] = [
   },
   {
     id: "samir",
-    name: { uk: "Самір Хаддад", en: "Samir Haddad" },
-    title: { uk: "Старший стиліст", en: "Senior Stylist" },
+    name: { nl: "Samir Haddad", en: "Samir Haddad" },
+    title: { nl: "Senior stylist", en: "Senior Stylist" },
     bio: {
-      uk: "Класичні форми з чіткими лініями: проділи, тейпери й помпадури, що тримаються весь тиждень.",
+      nl: "Klassieke vormen, scherp geknipt: scheidingen, tapers en pompadours die de hele week blijven zitten.",
       en: "Classic shapes cut sharp: side parts, tapers and pompadours that hold all week.",
     },
-    bookingCta: { uk: "Записатися до Саміра", en: "Book with Samir" },
+    bookingCta: { nl: "Boek bij Samir", en: "Book with Samir" },
     rating: 4.9,
     reviewCount: 298,
     yearsExperience: 7,
     specialties: [
-      { uk: "Тейпери", en: "Tapers" },
-      { uk: "Класичні проділи", en: "Side parts" },
-      { uk: "Деталі бритвою", en: "Razor detailing" },
+      { nl: "Tapers", en: "Tapers" },
+      { nl: "Zijscheidingen", en: "Side parts" },
+      { nl: "Details met het mes", en: "Razor detailing" },
     ],
     daysOff: [0, 3],
     photo: photoSamir,
@@ -288,20 +289,20 @@ export const BARBERS: readonly Barber[] = [
   },
   {
     id: "mark",
-    name: { uk: "Марк Соловей", en: "Mark Solovei" },
-    title: { uk: "Майстер-барбер", en: "Master Barber" },
+    name: { nl: "Mark Solovei", en: "Mark Solovei" },
+    title: { nl: "Master barber", en: "Master Barber" },
     bio: {
-      uk: "Крісло для кучерів, текстури та кольору. Працює з формою волосся, а не проти неї.",
+      nl: "De stoel voor krullen, textuur en kleur. Werkt met je haar mee in plaats van ertegenin.",
       en: "The chair for curls, texture and colour. Shapes hair instead of fighting it.",
     },
-    bookingCta: { uk: "Записатися до Марка", en: "Book with Mark" },
+    bookingCta: { nl: "Boek bij Mark", en: "Book with Mark" },
     rating: 4.9,
     reviewCount: 387,
     yearsExperience: 12,
     specialties: [
-      { uk: "Кучеряве волосся", en: "Curls and coils" },
-      { uk: "Берст-фейди", en: "Burst fades" },
-      { uk: "Камуфляж сивини", en: "Grey blending" },
+      { nl: "Krullen en kroeshaar", en: "Curls and coils" },
+      { nl: "Burst fades", en: "Burst fades" },
+      { nl: "Grijs camoufleren", en: "Grey blending" },
     ],
     daysOff: [4],
     photo: photoMark,
@@ -321,60 +322,60 @@ export const TESTIMONIALS: readonly Testimonial[] = [
   {
     id: "t1",
     quote: {
-      uk: "Данило за перші п’ять хвилин розпитав більше, ніж мій попередній барбер за два роки. Найкращий фейд у моєму житті.",
+      nl: "Danylo stelde in vijf minuten meer vragen dan mijn vorige barber in twee jaar. De beste fade die ik ooit heb gehad.",
       en: "Danylo asked more questions in the first five minutes than my last barber did in two years. Best fade I've had.",
     },
-    author: { uk: "Юліан Р.", en: "Yulian R." },
+    author: { nl: "Yulian R.", en: "Yulian R." },
     serviceId: "skin-fade",
     rating: 5,
   },
   {
     id: "t2",
     quote: {
-      uk: "Записався з метро о дев’ятій, об одинадцятій уже сидів у кріслі. Гоління з гарячими рушниками стало найспокійнішими 45 хвилинами мого місяця.",
+      nl: "Om negen uur geboekt vanuit de metro, om elf uur zat ik in de stoel. Scheren met hete handdoeken is de rustigste 45 minuten van mijn maand.",
       en: "Booked from the metro at nine, in the chair by eleven. The hot towel shave is the calmest 45 minutes of my month.",
     },
-    author: { uk: "Андрій М.", en: "Andrii M." },
+    author: { nl: "Andrii M.", en: "Andrii M." },
     serviceId: "royal-shave",
     rating: 5,
   },
   {
     id: "t3",
     quote: {
-      uk: "Син уперше всидів на місці, бо йому дісталося крісло поруч із моїм. Тепер ходимо разом кожні п’ять тижнів.",
+      nl: "Mijn zoon zat voor het eerst stil, omdat hij de stoel naast de mijne kreeg. Nu komen we elke vijf weken samen.",
       en: "My son sat still for the first time ever because he got the chair next to mine. We come every five weeks now.",
     },
-    author: { uk: "Тарас К.", en: "Taras K." },
+    author: { nl: "Taras K.", en: "Taras K." },
     serviceId: "father-son",
     rating: 5,
   },
   {
     id: "t4",
     quote: {
-      uk: "Марк став першим барбером, який зрозумів мої кучері. Він надав їм форму, а не просто зрізав об’єм.",
+      nl: "Mark is de eerste barber die mijn krullen begrijpt. Hij gaf ze vorm in plaats van alleen volume weg te knippen.",
       en: "Mark is the first barber who has understood my curls. He shaped them instead of just cutting the volume off.",
     },
-    author: { uk: "Давид А.", en: "Davyd A." },
+    author: { nl: "Davyd A.", en: "Davyd A." },
     serviceId: "signature-haircut",
     rating: 5,
   },
   {
     id: "t5",
     quote: {
-      uk: "Ілля виправив контур бороди, який я роками робив неправильно, і показав, як підтримувати його між візитами.",
+      nl: "Illia herstelde een baardlijn die ik jarenlang verkeerd deed en liet zien hoe ik die tussen de bezoeken bijhoud.",
       en: "Illia fixed a beard line I'd been getting wrong for years and showed me how to keep it between visits.",
     },
-    author: { uk: "Роман П.", en: "Roman P." },
+    author: { nl: "Roman P.", en: "Roman P." },
     serviceId: "beard-sculpting",
     rating: 5,
   },
   {
     id: "t6",
     quote: {
-      uk: "Запізнювався на десять хвилин, подзвонив, і крісло притримали. Стрижку однаково зробили без поспіху.",
+      nl: "Ik was tien minuten te laat, belde even en ze hielden de stoel vrij. De knipbeurt kreeg toch alle tijd.",
       en: "I was running ten minutes late, called ahead and they held the chair. The cut still got its full time.",
     },
-    author: { uk: "Остап Г.", en: "Ostap H." },
+    author: { nl: "Ostap H.", en: "Ostap H." },
     serviceId: "signature-haircut",
     rating: 4,
   },
@@ -385,73 +386,73 @@ export const GALLERY: readonly GalleryItem[] = [
     id: "g-skin-fade",
     image: gallerySkinFade,
     alt: {
-      uk: "Татуйовані руки барбера ведуть гребінець і бритву по короткому скін-фейду",
+      nl: "Getatoeëerde handen van een barber leiden kam en mes door een strakke skin fade",
       en: "A barber's tattooed hands guiding a comb and razor through a tight skin fade",
     },
-    caption: { uk: "Скін-фейд, фініш бритвою", en: "Skin fade, razor finish" },
+    caption: { nl: "Skin fade, afgewerkt met het mes", en: "Skin fade, razor finish" },
   },
   {
     id: "g-shop-floor",
     image: galleryShopFloor,
     alt: {
-      uk: "Три чорні шкіряні барберські крісла перед дзеркалами на цегляній стіні під теплими підвісними лампами",
+      nl: "Drie zwartleren barberstoelen voor spiegels aan een bakstenen muur onder warme hanglampen",
       en: "Three black leather barber chairs facing mirrors on an exposed brick wall under warm pendant lamps",
     },
-    caption: { uk: "Зала майстерні", en: "The shop floor" },
+    caption: { nl: "De werkvloer", en: "The shop floor" },
   },
   {
     id: "g-textured-crop",
     image: galleryTexturedCrop,
     alt: {
-      uk: "Текстурний кроп, вид ззаду: барбер тримає гребінець над маківкою",
+      nl: "Achteraanzicht van een textured crop, met een kam boven de kruin",
       en: "Back view of a textured crop being cut with a comb held above the crown",
     },
-    caption: { uk: "Текстурний кроп", en: "Textured crop" },
+    caption: { nl: "Textured crop", en: "Textured crop" },
   },
   {
     id: "g-hot-lather",
     image: galleryHotLather,
     alt: {
-      uk: "Помазок наносить теплу піну вздовж лінії бороди, чорно-біле фото",
+      nl: "Een kwast brengt warm schuim aan langs de baardlijn van een klant, in zwart-wit",
       en: "A brush working warm lather into a client's beard line, in black and white",
     },
-    caption: { uk: "Тепла піна", en: "Hot lather" },
+    caption: { nl: "Warm schuim", en: "Hot lather" },
   },
   {
     id: "g-beard-scissor",
     image: galleryBeardScissor,
     alt: {
-      uk: "Ножиці підрівнюють густу темну бороду клієнта, що відкинувся в кріслі, чорно-біле фото",
+      nl: "Een schaar trimt de volle donkere baard van een achterovergeleunde klant, in zwart-wit",
       en: "Scissors trimming a full dark beard on a reclined client, in black and white",
     },
-    caption: { uk: "Борода ножицями", en: "Beard, scissor over comb" },
+    caption: { nl: "Baard, schaar over kam", en: "Beard, scissor over comb" },
   },
   {
     id: "g-neckline",
     image: galleryNeckline,
     alt: {
-      uk: "Машинка вирівнює лінію шиї, вид з-за спини клієнта",
+      nl: "Een tondeuse maakt de neklijn recht, gezien van achter de klant",
       en: "A clipper squaring off a neckline, seen from behind the client",
     },
-    caption: { uk: "Окантовка шиї", en: "Neckline clean-up" },
+    caption: { nl: "Neklijn bijwerken", en: "Neckline clean-up" },
   },
   {
     id: "g-taper",
     image: galleryTaper,
     alt: {
-      uk: "Барбер прикладає гребінець до свіжого тейпера й працює машинкою",
+      nl: "Een barber houdt een kam tegen een verse taper en werkt bij met de tondeuse",
       en: "A barber holding a comb to a fresh taper while trimming with clippers",
     },
-    caption: { uk: "Низький тейпер", en: "Low taper" },
+    caption: { nl: "Low taper", en: "Low taper" },
   },
   {
     id: "g-beard-detail",
     image: galleryBeardDetail,
     alt: {
-      uk: "Руки в рукавичках підрівнюють вуса тримером, клієнт відпочиває із заплющеними очима",
+      nl: "Handen met handschoenen werken een snor bij met een trimmer terwijl de klant met gesloten ogen rust",
       en: "Gloved hands detailing a moustache with a trimmer while the client rests with eyes closed",
     },
-    caption: { uk: "Деталі вусів", en: "Moustache detail" },
+    caption: { nl: "Snordetail", en: "Moustache detail" },
   },
 ]
 
@@ -475,19 +476,19 @@ const LAST_NAMES = [
 
 /** Notes clients leave, in the language they'd write them. */
 const CLIENT_NOTES: readonly LocalizedText[] = [
-  { uk: "Залишити довжину зверху", en: "Keep the length on top" },
-  { uk: "Як минулого разу", en: "Same as last time" },
-  { uk: "Перший візит", en: "First visit" },
+  { nl: "Bovenop de lengte behouden", en: "Keep the length on top" },
+  { nl: "Hetzelfde als de vorige keer", en: "Same as last time" },
+  { nl: "Eerste bezoek", en: "First visit" },
   {
-    uk: "Чутлива шкіра, без спиртового лосьйону",
+    nl: "Gevoelige huid, geen aftershave met alcohol",
     en: "Sensitive skin, no alcohol aftershave",
   },
-  { uk: "У суботу весілля", en: "Wedding on Saturday" },
-  { uk: "Можу запізнитися на п’ять хвилин", en: "Might run five minutes late" },
+  { nl: "Zaterdag een bruiloft", en: "Wedding on Saturday" },
+  { nl: "Kan vijf minuten later zijn", en: "Might run five minutes late" },
 ]
 
 const SEED_NOTE_TRANSLATIONS = new Map(
-  CLIENT_NOTES.map((note) => [note.uk, note])
+  CLIENT_NOTES.map((note) => [note.nl, note])
 )
 
 /**
@@ -579,7 +580,7 @@ export function createBookingId(): string {
 }
 
 /**
- * Seeded clients get numbers that cannot belong to anyone: Kyiv landline
+ * Seeded clients get numbers that cannot belong to anyone: Amsterdam landline
  * numbers never start with 0 after the area code.
  */
 function clientAt(index: number): ClientInfo {
@@ -590,8 +591,8 @@ function clientAt(index: number): ClientInfo {
   const last = LAST_NAMES[lastIndex]
   const digits = String((index * 7919 + 104729) % 1_000_000).padStart(6, "0")
   return {
-    fullName: `${first} ${last}`,
-    phone: `+380 (44) 0${digits.slice(0, 2)}-${digits.slice(2, 4)}-${digits.slice(4)}`,
+    fullName: transliterate(`${first} ${last}`),
+    phone: `+31 20 0${digits.slice(0, 2)} ${digits.slice(2)}`,
     email: `${transliterate(first)}.${transliterate(last)}@example.com`.toLowerCase(),
   }
 }
@@ -662,7 +663,7 @@ function buildDayLayout(dateKey: string): SeedEntry[] {
             ? {
                 ...client,
                 notes:
-                  CLIENT_NOTES[Math.floor(noteRoll * 1000) % CLIENT_NOTES.length].uk,
+                  CLIENT_NOTES[Math.floor(noteRoll * 1000) % CLIENT_NOTES.length].nl,
               }
             : client,
         roll: rng(),

@@ -1,7 +1,7 @@
 /**
  * Ukrainian → Latin transliteration following the official 2010 standard
  * (Cabinet of Ministers resolution No. 55), the one used in passports.
- * Used to show client names in the English interface.
+ * Client names typed in Cyrillic are shown in Latin script in the interface.
  */
 
 const BASE: Readonly<Record<string, string>> = {

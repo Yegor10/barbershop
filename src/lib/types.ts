@@ -1,4 +1,4 @@
-import { z } from "zod"
+﻿import { z } from "zod"
 
 import type { LocalizedText } from "@/i18n/config"
 
@@ -27,9 +27,9 @@ export type ServiceCategory = (typeof SERVICE_CATEGORIES)[number]
 export const APPOINTMENT_SOURCES = ["online", "walk_in", "phone"] as const
 export type AppointmentSource = (typeof APPOINTMENT_SOURCES)[number]
 
-/** Content written once per language (Ukrainian and English). */
+/** Content written once per language (Dutch and English). */
 export const localizedTextSchema = z.object({
-  uk: z.string().min(1),
+  nl: z.string().min(1),
   en: z.string().min(1),
 }) satisfies z.ZodType<LocalizedText>
 
@@ -78,7 +78,7 @@ export interface Barber {
   /** Shown as a badge, e.g. "Master Barber". */
   title: LocalizedText
   bio: LocalizedText
-  /** Button label, e.g. "Book with Illia" (Ukrainian needs the name declined). */
+  /** Button label, e.g. "Book with Illia". */
   bookingCta: LocalizedText
   rating: number
   reviewCount: number
@@ -136,15 +136,15 @@ export const bookingSlotSchema = z.object({
 
 export interface ClientInfo {
   fullName: string
-  /** Full number, "+380 (67) 123-45-67", or empty for a walk-in. */
+  /** Full number, "+31 61 234 5678", or empty for a walk-in. */
   phone: string
   email?: string
   notes?: string
 }
 
-/** The part of a Ukrainian number the client types after +380. */
-export const PHONE_NATIONAL_PATTERN = /^\(\d{2}\) \d{3}-\d{2}-\d{2}$/
-export const PHONE_COUNTRY_PREFIX = "+380"
+/** The part of a Dutch number the client types after +31. */
+export const PHONE_NATIONAL_PATTERN = /^\d{2} \d{3} \d{4}$/
+export const PHONE_COUNTRY_PREFIX = "+31"
 
 /** Stored shape: the front desk can add a walk-in with only a name. */
 export const clientInfoSchema = z.object({

@@ -96,9 +96,9 @@ function BarberOption({
     <label
       className={cn(
         "flex cursor-pointer items-start gap-3.5 rounded-xl border p-4 transition-colors",
-        "has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-amber-400",
+        "has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-cyan-400",
         checked
-          ? "border-amber-500 bg-amber-500/10"
+          ? "border-cyan-500 bg-cyan-500/10"
           : "border-white/10 bg-slate-900/60 hover:border-white/25 hover:bg-slate-900"
       )}
     >
@@ -143,7 +143,7 @@ function BarberOption({
         {barber ? (
           <>
             <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-              <Star aria-hidden className="size-3.5 fill-amber-400 text-amber-400" />
+              <Star aria-hidden className="size-3.5 fill-cyan-400 text-cyan-400" />
               <span className="font-medium text-foreground">
                 <span className="sr-only">
                   {t.common.ratingOutOfFive(fmt.number(barber.rating, 1))}
@@ -180,12 +180,12 @@ function BarberOption({
         aria-hidden
         className={cn(
           "mt-1 flex size-5 shrink-0 items-center justify-center rounded-full border transition-colors",
-          checked ? "border-amber-500" : "border-white/25"
+          checked ? "border-cyan-500" : "border-white/25"
         )}
       >
         <span
           className={cn(
-            "size-2.5 rounded-full bg-amber-500 transition-transform",
+            "size-2.5 rounded-full bg-cyan-500 transition-transform",
             checked ? "scale-100" : "scale-0"
           )}
         />

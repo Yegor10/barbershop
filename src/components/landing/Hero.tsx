@@ -1,9 +1,7 @@
 import type { CSSProperties } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { Star } from "lucide-react"
 
-import heroImage from "@/assets/images/hero.jpg"
 import { OpenChairs } from "@/components/landing/OpenChairs"
 import { Button } from "@/components/ui/button"
 import type { I18n } from "@/i18n/create-i18n"
@@ -20,8 +18,8 @@ function riseOrder(order: number): CSSProperties {
 }
 
 /**
- * Opening screen: the shop's promise set as signage over a photo of the
- * work, with the next free chairs one tap away.
+ * Opening screen: the shop's promise as neon signage in front of the 3D
+ * clipper, with the next free chairs one tap away.
  */
 export function Hero({ i18n }: HeroProps) {
   const { t, fmt, href } = i18n
@@ -32,19 +30,10 @@ export function Hero({ i18n }: HeroProps) {
       id="top"
       className="relative isolate flex min-h-svh flex-col justify-end overflow-hidden"
     >
-      <Image
-        src={heroImage}
-        alt={t.hero.imageAlt}
-        fill
-        priority
-        placeholder="blur"
-        sizes="100vw"
-        className="-z-20 object-cover object-[68%_center]"
-      />
-      {/* Darken the left and the bottom so type stays readable on any crop. */}
+      {/* Darken the left and the bottom so type stays readable over the model. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,#020617_4%,rgb(2_6_23/0.72)_38%,rgb(2_6_23/0.25)_70%,rgb(2_6_23/0.55)),linear-gradient(to_right,rgb(2_6_23/0.75),transparent_65%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_top,rgb(8_5_26/0.97)_10%,rgb(8_5_26/0.88)_66%,rgb(8_5_26/0.62)_84%,rgb(8_5_26/0.3))] lg:bg-[linear-gradient(to_right,rgb(8_5_26/0.94)_30%,rgb(8_5_26/0.5)_52%,transparent_70%)]"
       />
 
       <div className="mx-auto grid w-full max-w-7xl grid-cols-[minmax(0,1fr)] gap-10 px-4 pt-28 pb-10 sm:px-6 sm:pb-14 lg:grid-cols-[minmax(0,1fr)_23rem] lg:items-end lg:gap-14">
@@ -88,7 +77,7 @@ export function Hero({ i18n }: HeroProps) {
             style={riseOrder(3)}
             className="rise flex items-center gap-2 text-sm text-slate-300"
           >
-            <Star aria-hidden className="size-4 fill-amber-400 text-amber-400" />
+            <Star aria-hidden className="size-4 fill-cyan-400 text-cyan-400" />
             {t.hero.ratingLine(
               fmt.number(SHOP.rating, 1),
               fmt.number(SHOP.reviewCount)

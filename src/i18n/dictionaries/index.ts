@@ -1,11 +1,11 @@
 import type { Locale } from "@/i18n/config"
 import { en } from "@/i18n/dictionaries/en"
-import { uk } from "@/i18n/dictionaries/uk"
+import { nl } from "@/i18n/dictionaries/nl"
 
-/** The Ukrainian dictionary is the source of truth for the shape. */
-export type Dictionary = typeof uk
+/** The Dutch dictionary is the source of truth for the shape. */
+export type Dictionary = typeof nl
 
-const DICTIONARIES: Readonly<Record<Locale, Dictionary>> = { uk, en }
+const DICTIONARIES: Readonly<Record<Locale, Dictionary>> = { nl, en }
 
 export function getDictionary(locale: Locale): Dictionary {
   return DICTIONARIES[locale]

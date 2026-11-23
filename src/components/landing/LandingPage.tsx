@@ -1,4 +1,5 @@
 import { BarbersSection } from "@/components/landing/BarbersSection"
+import { ClipperBackdrop } from "@/components/landing/ClipperBackdrop"
 import { GallerySection } from "@/components/landing/GallerySection"
 import { Hero } from "@/components/landing/Hero"
 import { LocationSection } from "@/components/landing/LocationSection"
@@ -19,8 +20,12 @@ export function LandingPage({ locale }: LandingPageProps) {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">
+        {i18n.t.common.skipToContent}
+      </a>
+      <ClipperBackdrop />
       <SiteHeader />
-      <main>
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Hero i18n={i18n} />
         <ServicesShowcase i18n={i18n} />
         <BarbersSection i18n={i18n} />

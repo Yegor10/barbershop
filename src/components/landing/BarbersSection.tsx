@@ -66,7 +66,7 @@ function BarberProfile({ barber, i18n }: BarberProfileProps) {
           <h3 className="display text-4xl">{name}</h3>
           <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
             <span className="flex items-center gap-1.5 font-medium text-foreground">
-              <Star aria-hidden className="size-4 fill-amber-400 text-amber-400" />
+              <Star aria-hidden className="size-4 fill-cyan-400 text-cyan-400" />
               <span className="sr-only">
                 {t.common.ratingOutOfFive(fmt.number(barber.rating, 1))}
               </span>
@@ -95,7 +95,7 @@ function BarberProfile({ barber, i18n }: BarberProfileProps) {
 
         <Link
           href={`${href("/book")}?barber=${barber.id}`}
-          className="focus-ring mt-auto inline-flex h-11 w-fit items-center rounded-lg border border-white/25 px-4 text-sm font-semibold transition-colors hover:border-amber-500 hover:bg-amber-500 hover:text-slate-950"
+          className="focus-ring mt-auto inline-flex h-11 w-fit items-center rounded-lg border border-white/25 px-4 text-sm font-semibold transition-colors hover:border-cyan-500 hover:bg-cyan-500 hover:text-slate-950"
         >
           {tr(barber.bookingCta)}
         </Link>

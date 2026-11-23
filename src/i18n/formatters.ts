@@ -1,5 +1,5 @@
 import { differenceInCalendarDays, format, type Locale as DateFnsLocale } from "date-fns"
-import { enGB, uk as ukDateLocale } from "date-fns/locale"
+import { enGB, nl as nlDateLocale } from "date-fns/locale"
 
 import type { Locale } from "@/i18n/config"
 import type { Dictionary } from "@/i18n/dictionaries"
@@ -10,13 +10,13 @@ type DateInput = Date | string
 export interface Formatters {
   /** date-fns locale, for components that format dates themselves. */
   dateLocale: DateFnsLocale
-  /** 650 → "650 ₴" / "₴650" */
+  /** 650 → "₴ 650" / "₴650" */
   price: (amount: number) => string
-  /** 1453 → "1 453" / "1,453" */
+  /** 1453 → "1.453" / "1,453" */
   number: (value: number, fractionDigits?: number) => string
   /** 0.72 → "72%" */
   percent: (ratio: number) => string
-  /** 75 → "1 год 15 хв" / "1 h 15 min" */
+  /** 75 → "1 u 15 min" / "1 h 15 min" */
   duration: (minutes: number) => string
   /** "14:30" */
   time: (date: DateInput) => string
@@ -24,23 +24,23 @@ export interface Formatters {
   timeRange: (start: DateInput, end: DateInput) => string
   /** Minutes after midnight → "09:00" */
   minuteOfDay: (minutes: number) => string
-  /** "чт, 12 листоп." / "Thu, 12 Nov" */
+  /** "do, 12 nov." / "Thu, 12 Nov" */
   dayShort: (date: DateInput) => string
-  /** Compact, for tight spots: "чт, 12.11" / "Thu, 12 Nov" */
+  /** Compact, for tight spots: "do, 12-11" / "Thu, 12 Nov" */
   dayCompact: (date: DateInput) => string
-  /** "Четвер, 12 листопада" / "Thursday, 12 November" */
+  /** "Donderdag, 12 november" / "Thursday, 12 November" */
   dayLong: (date: DateInput) => string
-  /** "12 листопада 2026" / "12 November 2026" */
+  /** "12 november 2026" / "12 November 2026" */
   dateFull: (date: DateInput) => string
-  /** "Сьогодні" / "Завтра" / "Чт, 12 листоп." */
+  /** "Vandaag" / "Morgen" / "Do, 12 nov." */
   relativeDay: (date: DateInput, now: Date) => string
-  /** "сьогодні о 14:30" / "чт, 12 листоп., 14:30" */
+  /** "vandaag om 14:30" / "Thu, 12 Nov, 14:30" */
   relativeDayTime: (date: DateInput, now: Date) => string
-  /** 0 = Sunday … 6 = Saturday → "Неділя" / "Sunday" */
+  /** 0 = Sunday … 6 = Saturday → "Zondag" / "Sunday" */
   weekday: (dayIndex: number) => string
-  /** → "нд" / "Sun" */
+  /** → "zo" / "Sun" */
   weekdayShort: (dayIndex: number) => string
-  /** Client names are stored as typed; in English, Cyrillic is romanised. */
+  /** Client names are stored as typed; Cyrillic is romanised for display. */
   personName: (name: string) => string
 }
 
@@ -54,14 +54,14 @@ function sampleWeekday(dayIndex: number): Date {
 }
 
 export function createFormatters(locale: Locale, t: Dictionary): Formatters {
-  const isUk = locale === "uk"
-  const dateLocale = isUk ? ukDateLocale : enGB
-  const numberLocale = isUk ? "uk-UA" : "en-GB"
+  const isNl = locale === "nl"
+  const dateLocale = isNl ? nlDateLocale : enGB
+  const numberLocale = isNl ? "nl-NL" : "en-GB"
   const options = { locale: dateLocale }
 
   const time = (date: DateInput) => format(new Date(date), "HH:mm")
   const dayShort = (date: DateInput) =>
-    format(new Date(date), isUk ? "EEEEEE, d MMM" : "EEE, d MMM", options)
+    format(new Date(date), isNl ? "EEEEEE, d MMM" : "EEE, d MMM", options)
 
   const number = (value: number, fractionDigits = 0) =>
     new Intl.NumberFormat(numberLocale, {
@@ -79,7 +79,7 @@ export function createFormatters(locale: Locale, t: Dictionary): Formatters {
 
   return {
     dateLocale,
-    price: (amount) => (isUk ? `${number(amount)} ₴` : `₴${number(amount)}`),
+    price: (amount) => (isNl ? `₴ ${number(amount)}` : `₴${number(amount)}`),
     number,
     percent: (ratio) => `${Math.round(ratio * 100)}%`,
     duration: (minutes) => {
@@ -95,7 +95,7 @@ export function createFormatters(locale: Locale, t: Dictionary): Formatters {
     minuteOfDay: (minutes) => time(new Date(2000, 0, 1, 0, minutes)),
     dayShort,
     dayCompact: (date) =>
-      format(new Date(date), isUk ? "EEEEEE, dd.MM" : "EEE, d MMM", options),
+      format(new Date(date), isNl ? "EEEEEE, dd-MM" : "EEE, d MMM", options),
     dayLong: (date) =>
       capitalize(format(new Date(date), "EEEE, d MMMM", options)),
     dateFull: (date) => format(new Date(date), "d MMMM yyyy", options),
@@ -110,7 +110,7 @@ export function createFormatters(locale: Locale, t: Dictionary): Formatters {
     weekday: (dayIndex) =>
       capitalize(format(sampleWeekday(dayIndex), "EEEE", options)),
     weekdayShort: (dayIndex) =>
-      format(sampleWeekday(dayIndex), isUk ? "EEEEEE" : "EEE", options),
-    personName: (name) => (isUk ? name : transliterate(name)),
+      format(sampleWeekday(dayIndex), isNl ? "EEEEEE" : "EEE", options),
+    personName: transliterate,
   }
 }

@@ -13,15 +13,15 @@ import "./globals.css"
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
 
 export const metadata: Metadata = {
-  title: "Сторінку не знайдено | Strop & Steel",
+  title: "Pagina niet gevonden | Strop & Steel",
 }
 
 export default function GlobalNotFound() {
-  const uk = getDictionary("uk").notFound
+  const nl = getDictionary("nl").notFound
   const en = getDictionary("en").notFound
 
   return (
-    <html lang="uk" className={`dark ${fontVariables} h-full antialiased`}>
+    <html lang="nl" className={`dark ${fontVariables} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <main className="mx-auto flex w-full max-w-xl flex-1 flex-col justify-center gap-10 px-5 py-16">
           <a href={`${basePath}/`} className="focus-ring w-fit rounded-sm">
@@ -29,21 +29,21 @@ export default function GlobalNotFound() {
           </a>
 
           <div className="flex flex-col gap-3">
-            <p className="numerals text-7xl text-amber-500">404</p>
-            <h1 className="display text-5xl sm:text-6xl">{uk.title}</h1>
-            <p className="text-muted-foreground">{uk.lead}</p>
+            <p className="numerals text-7xl text-cyan-400">404</p>
+            <h1 className="display text-5xl sm:text-6xl">{nl.title}</h1>
+            <p className="text-muted-foreground">{nl.lead}</p>
             <div className="mt-2 flex flex-wrap gap-3">
               <a
                 href={`${basePath}/book/`}
-                className="focus-ring inline-flex h-12 items-center rounded-lg bg-primary px-5 font-semibold text-primary-foreground hover:bg-amber-400"
+                className="focus-ring inline-flex h-12 items-center rounded-lg bg-primary px-5 font-semibold text-primary-foreground hover:bg-cyan-300"
               >
-                {uk.book}
+                {nl.book}
               </a>
               <a
                 href={`${basePath}/`}
                 className="focus-ring inline-flex h-12 items-center rounded-lg border border-white/20 px-5 font-semibold hover:bg-white/5"
               >
-                {uk.home}
+                {nl.home}
               </a>
             </div>
           </div>
@@ -53,7 +53,7 @@ export default function GlobalNotFound() {
             <p className="text-muted-foreground">{en.lead}</p>
             <a
               href={`${basePath}/en/`}
-              className="focus-ring w-fit rounded-sm font-medium text-amber-400 underline underline-offset-4 hover:text-amber-300"
+              className="focus-ring w-fit rounded-sm font-medium text-cyan-300 underline underline-offset-4 hover:text-cyan-200"
             >
               {en.home}
             </a>

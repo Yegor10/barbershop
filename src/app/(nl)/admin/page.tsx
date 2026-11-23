@@ -4,7 +4,7 @@ import { AdminScreen } from "@/components/admin/AdminScreen"
 import { getDictionary } from "@/i18n/dictionaries"
 
 export const metadata: Metadata = {
-  title: getDictionary("uk").meta.adminTitle,
+  title: getDictionary("nl").meta.adminTitle,
   robots: { index: false },
 }
 

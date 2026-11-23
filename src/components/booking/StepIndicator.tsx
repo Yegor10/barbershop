@@ -54,8 +54,8 @@ export function StepIndicator({
             <span
               className={cn(
                 "numerals flex size-7 shrink-0 items-center justify-center rounded-full border text-base transition-colors",
-                isCurrent && "border-amber-500 bg-amber-500 text-slate-950",
-                isDone && "border-amber-500/60 text-amber-400",
+                isCurrent && "border-cyan-500 bg-cyan-500 text-slate-950",
+                isDone && "border-cyan-500/60 text-cyan-400",
                 !isCurrent && !isDone && "border-white/15 text-muted-foreground"
               )}
             >
@@ -98,6 +98,7 @@ export function StepIndicator({
 
       <div
         role="progressbar"
+        aria-label={t.booking.progressLabel}
         aria-valuemin={1}
         aria-valuemax={total}
         aria-valuenow={current + 1}

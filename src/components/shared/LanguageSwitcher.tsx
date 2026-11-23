@@ -9,7 +9,7 @@ import { useI18n } from "@/i18n/locale-provider"
 import { cn } from "@/lib/utils"
 
 const LANGUAGES: Readonly<Record<Locale, { short: string; name: string }>> = {
-  uk: { short: "UA", name: "Українська" },
+  nl: { short: "NL", name: "Nederlands" },
   en: { short: "EN", name: "English" },
 }
 
@@ -18,7 +18,7 @@ interface LanguageSwitcherProps {
 }
 
 /**
- * Switches between the Ukrainian and English version of the current page.
+ * Switches between the Dutch and English version of the current page.
  * The query string is carried over, so a ticket or a dashboard date stays
  * on screen in the other language.
  */

@@ -46,7 +46,7 @@ function ServiceRow({ service, i18n }: ServiceRowProps) {
       {/* The rule on the left fills with amber on hover. */}
       <span
         aria-hidden
-        className="absolute inset-y-0 left-0 w-0.5 origin-top scale-y-0 bg-amber-500 transition-transform duration-300 group-hover:scale-y-100"
+        className="absolute inset-y-0 left-0 w-0.5 origin-top scale-y-0 bg-cyan-500 transition-transform duration-300 group-hover:scale-y-100"
       />
 
       <div className="flex min-w-0 flex-1 flex-col gap-2">
@@ -68,7 +68,7 @@ function ServiceRow({ service, i18n }: ServiceRowProps) {
         <Link
           href={`${href("/book")}?service=${service.id}`}
           aria-label={t.services.selectAria(name)}
-          className="focus-ring inline-flex h-11 items-center rounded-lg border border-white/25 px-4 text-sm font-semibold transition-colors hover:border-amber-500 hover:bg-amber-500 hover:text-slate-950"
+          className="focus-ring inline-flex h-11 items-center rounded-lg border border-white/25 px-4 text-sm font-semibold transition-colors hover:border-cyan-500 hover:bg-cyan-500 hover:text-slate-950"
         >
           {t.services.select}
         </Link>

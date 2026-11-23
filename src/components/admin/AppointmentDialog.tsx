@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { isBefore, startOfDay } from "date-fns"
 import { CalendarDays } from "lucide-react"
-import { enGB as calendarEn, uk as calendarUk } from "react-day-picker/locale"
+import { enGB as calendarEn, nl as calendarNl } from "react-day-picker/locale"
 import { toast } from "sonner"
 
 import { Button } from "@/components/ui/button"
@@ -213,7 +213,7 @@ function AppointmentDetails({
           {appointment.client.phone ? (
             <a
               href={toTelHref(appointment.client.phone)}
-              className="focus-ring rounded-sm underline underline-offset-4 hover:text-amber-300"
+              className="focus-ring rounded-sm underline underline-offset-4 hover:text-cyan-300"
             >
               {appointment.client.phone}
             </a>
@@ -302,7 +302,7 @@ function AppointmentDetails({
                   onSelect={handleDateChange}
                   disabled={(date) => isBefore(date, startOfDay(now))}
                   weekStartsOn={1}
-                  locale={locale === "uk" ? calendarUk : calendarEn}
+                  locale={locale === "nl" ? calendarNl : calendarEn}
                   className="[--cell-size:2.25rem]"
                 />
               </PopoverContent>

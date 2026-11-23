@@ -52,16 +52,13 @@ export function OpenChairs() {
         {openings && now
           ? openings.map(({ barber, slot }) => {
               const name = tr(barber.name)
-              const when = slot ? fmt.relativeDayTime(slot.start, now) : null
               return (
                 <li key={barber.id}>
                   <Link
                     href={`${href("/book")}?barber=${barber.id}`}
-                    aria-label={
-                      when ? t.hero.openChairsBookAria(name, when) : `${name}`
-                    }
                     className="focus-ring group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-white/10"
                   >
+                    <span className="sr-only">{t.common.bookAppointment}: </span>
                     <Image
                       src={barber.avatar}
                       alt=""
@@ -82,7 +79,7 @@ export function OpenChairs() {
                     )}
                     <ChevronRight
                       aria-hidden
-                      className="size-4 shrink-0 text-slate-400 transition-[color,translate] group-hover:translate-x-0.5 group-hover:text-amber-400"
+                      className="size-4 shrink-0 text-slate-400 transition-[color,translate] group-hover:translate-x-0.5 group-hover:text-cyan-400"
                     />
                   </Link>
                 </li>

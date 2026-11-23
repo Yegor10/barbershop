@@ -65,10 +65,10 @@ export function MetricsBar({ stats, isToday, upcoming }: MetricsBarProps) {
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={Math.round(stats.occupancy * 100)}
-            className="h-1.5 overflow-hidden rounded-full bg-amber-500/20"
+            className="h-1.5 overflow-hidden rounded-full bg-cyan-500/20"
           >
             <div
-              className="h-full rounded-full bg-amber-500 transition-[width] duration-500"
+              className="h-full rounded-full bg-cyan-500 transition-[width] duration-500"
               style={{ width: `${Math.round(stats.occupancy * 100)}%` }}
             />
           </div>

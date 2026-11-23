@@ -59,7 +59,7 @@ export function StepServices({ selectedIds, onToggle }: StepServicesProps) {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="rounded-lg border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-200"
+            className="rounded-lg border border-cyan-500/30 bg-cyan-500/10 px-4 py-3 text-sm text-cyan-200"
           >
             {t.booking.services.limitReached(
               fmt.duration(SLOT_RULES.maxDurationMin)
@@ -95,7 +95,7 @@ function ServiceOption({ service, selected, locked, onToggle }: ServiceOptionPro
       className={cn(
         "focus-ring flex w-full items-start gap-3.5 rounded-xl border p-4 text-left transition-colors",
         selected
-          ? "border-amber-500 bg-amber-500/10"
+          ? "border-cyan-500 bg-cyan-500/10"
           : "border-white/10 bg-slate-900/60 hover:border-white/25 hover:bg-slate-900",
         locked && "cursor-not-allowed opacity-45 hover:border-white/10 hover:bg-slate-900/60"
       )}
@@ -104,7 +104,7 @@ function ServiceOption({ service, selected, locked, onToggle }: ServiceOptionPro
         aria-hidden
         className={cn(
           "mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-md border transition-colors",
-          selected ? "border-amber-500 bg-amber-500 text-slate-950" : "border-white/25"
+          selected ? "border-cyan-500 bg-cyan-500 text-slate-950" : "border-white/25"
         )}
       >
         <AnimatePresence initial={false}>

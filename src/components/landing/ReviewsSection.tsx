@@ -48,7 +48,7 @@ export function ReviewsSection({ i18n }: ReviewsSectionProps) {
                         className={cn(
                           "size-4",
                           index < testimonial.rating
-                            ? "fill-amber-400 text-amber-400"
+                            ? "fill-cyan-400 text-cyan-400"
                             : "text-slate-600"
                         )}
                       />

@@ -253,7 +253,7 @@ function WalkInForm({ prefill, date, now, getAppointments, onCreated }: WalkInFo
                   type="tel"
                   inputMode="tel"
                   autoComplete="off"
-                  placeholder="(67) 123-45-67"
+                  placeholder="61 234 5678"
                   aria-invalid={Boolean(errors.phone)}
                   aria-describedby={errors.phone ? "walk-in-phone-error" : undefined}
                   className="h-11 pr-3 pl-[3.4rem] text-base md:text-base"
@@ -280,9 +280,9 @@ function WalkInForm({ prefill, date, now, getAppointments, onCreated }: WalkInFo
               key={option}
               className={cn(
                 "flex h-11 cursor-pointer items-center justify-center rounded-lg border px-3 text-sm font-medium transition-colors",
-                "has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-amber-400",
+                "has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-cyan-400",
                 source === option
-                  ? "border-amber-500 bg-amber-500/10"
+                  ? "border-cyan-500 bg-cyan-500/10"
                   : "border-white/12 text-slate-300 hover:border-white/30"
               )}
             >
@@ -311,9 +311,9 @@ function WalkInForm({ prefill, date, now, getAppointments, onCreated }: WalkInFo
                 key={service.id}
                 className={cn(
                   "flex cursor-pointer items-center gap-2.5 rounded-lg border px-3 py-2 transition-colors",
-                  "has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-amber-400",
+                  "has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-cyan-400",
                   checked
-                    ? "border-amber-500 bg-amber-500/10"
+                    ? "border-cyan-500 bg-cyan-500/10"
                     : "border-white/12 hover:border-white/30",
                   locked && "cursor-not-allowed opacity-45 hover:border-white/12"
                 )}
@@ -330,7 +330,7 @@ function WalkInForm({ prefill, date, now, getAppointments, onCreated }: WalkInFo
                   className={cn(
                     "flex size-5 shrink-0 items-center justify-center rounded border",
                     checked
-                      ? "border-amber-500 bg-amber-500 text-slate-950"
+                      ? "border-cyan-500 bg-cyan-500 text-slate-950"
                       : "border-white/25"
                   )}
                 >
@@ -402,7 +402,7 @@ function WalkInForm({ prefill, date, now, getAppointments, onCreated }: WalkInFo
             </SelectContent>
           </Select>
           {starts.length === 0 ? (
-            <p className="text-sm text-amber-300">
+            <p className="text-sm text-cyan-300">
               {serviceIds.length === 0 ? copy.pickServicesFirst : copy.noTimes}
             </p>
           ) : (

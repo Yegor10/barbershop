@@ -67,7 +67,7 @@ export function OpeningHours() {
                     {fmt.weekday(dayIndex)}
                   </span>
                   {isToday && (
-                    <span className="ml-2 rounded-full bg-amber-500 px-2 py-0.5 text-xs font-semibold text-slate-950">
+                    <span className="ml-2 rounded-full bg-cyan-500 px-2 py-0.5 text-xs font-semibold text-slate-950">
                       {t.location.todayMark}
                     </span>
                   )}

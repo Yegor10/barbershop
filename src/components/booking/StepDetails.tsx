@@ -106,7 +106,7 @@ export function StepDetails({
                     inputMode="tel"
                     autoComplete="tel-national"
                     enterKeyHint="next"
-                    placeholder="(67) 123-45-67"
+                    placeholder="61 234 5678"
                     aria-invalid={Boolean(errors.phone)}
                     aria-describedby={
                       errors.phone ? "booking-phone-error" : "booking-phone-hint"

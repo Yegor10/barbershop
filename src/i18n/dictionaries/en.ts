@@ -14,6 +14,7 @@ export const en: Dictionary = {
   },
 
   common: {
+    skipToContent: "Skip to content",
     bookAppointment: "Book appointment",
     exploreServices: "Explore services",
     back: "Back",
@@ -64,13 +65,10 @@ export const en: Dictionary = {
   hero: {
     title: "Craftsmanship & modern grooming",
     lead: "Four barbers and one workshop in Podil. Haircuts, fades and straight-razor shaves, unhurried and right on time.",
-    imageAlt:
-      "A barber trimming a client's beard with scissors in a dimly lit workshop",
     ratingLine: (rating, reviews) => `${rating} out of 5 from ${reviews} reviews`,
     openChairsTitle: "Next open chairs",
     openChairsHint: (duration) => `For a ${duration} haircut`,
     openChairsNone: "Fully booked for two weeks",
-    openChairsBookAria: (barber, when) => `Book ${barber}, ${when}`,
   },
 
   services: {
@@ -198,7 +196,7 @@ export const en: Dictionary = {
       errors: {
         nameRequired: "Enter your full name",
         nameTooLong: "Keep it under 60 characters",
-        phoneInvalid: "Enter the whole number: 9 digits after +380",
+        phoneInvalid: "Enter the whole number: 9 digits after +31",
         emailRequired: "Enter your email",
         emailInvalid: "Check the address. Example: name@example.com",
         notesTooLong: "Keep notes under 240 characters",
@@ -286,8 +284,6 @@ export const en: Dictionary = {
         `${count} ${plural(count, "appointment", "appointments")}`,
       now: "now",
       addAt: (barber, time) => `Add a booking: ${barber}, ${time}`,
-      openAppointment: (client, time, status) =>
-        `${client}, ${time}, ${status}. Open appointment`,
       emptyFilterTitle: (status) => `No appointments marked "${status}"`,
       emptyFilterHint: "Try another status or show every appointment.",
       showAll: "Show all",

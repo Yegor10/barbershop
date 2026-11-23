@@ -1,9 +1,9 @@
-export const LOCALES = ["uk", "en"] as const
+export const LOCALES = ["nl", "en"] as const
 
 export type Locale = (typeof LOCALES)[number]
 
-/** Ukrainian is served at the site root; English lives under `/en`. */
-export const DEFAULT_LOCALE: Locale = "uk"
+/** Dutch is served at the site root; English lives under `/en`. */
+export const DEFAULT_LOCALE: Locale = "nl"
 
 /** A piece of content written once per language. */
 export type LocalizedText = Readonly<Record<Locale, string>>
@@ -12,7 +12,7 @@ const EN_PREFIX = "/en"
 
 /**
  * The address of a page in a given language.
- * `localizePath("/book", "en")` → `/en/book`, `localizePath("/#services", "uk")` → `/#services`.
+ * `localizePath("/book", "en")` → `/en/book`, `localizePath("/#services", "nl")` → `/#services`.
  */
 export function localizePath(path: string, locale: Locale): string {
   const clean = path.startsWith("/") ? path : `/${path}`

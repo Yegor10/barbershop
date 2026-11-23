@@ -178,7 +178,7 @@ export function ScheduleGrid({
           {nowOffset !== null && (
             <span
               data-now-marker
-              className="numerals absolute right-1.5 z-10 -translate-y-1/2 rounded bg-amber-500 px-1.5 py-0.5 text-base leading-none text-slate-950"
+              className="numerals absolute right-1.5 z-10 -translate-y-1/2 rounded bg-cyan-500 px-1.5 py-0.5 text-base leading-none text-slate-950"
               style={{ top: nowOffset }}
             >
               <span className="sr-only">{t.admin.grid.now}: </span>
@@ -310,13 +310,13 @@ function BarberColumn({
             tabIndex={-1}
             aria-label={t.admin.grid.addAt(tr(barber.name), time)}
             onClick={() => onAddAt(barber.id, start.toISOString())}
-            className="group/slot absolute inset-x-0 text-left transition-colors hover:bg-amber-500/10"
+            className="group/slot absolute inset-x-0 text-left transition-colors hover:bg-cyan-500/10"
             style={{
               top: EDGE_PX + (minuteOfDay(start) - hours.openMin) * PX_PER_MIN,
               height: ADD_SLOT_MIN * PX_PER_MIN,
             }}
           >
-            <span className="hidden items-center gap-1 px-2 pt-1.5 text-xs font-medium text-amber-300 group-hover/slot:flex">
+            <span className="hidden items-center gap-1 px-2 pt-1.5 text-xs font-medium text-cyan-300 group-hover/slot:flex">
               <Plus aria-hidden className="size-3.5" />
               {time}
             </span>
@@ -343,7 +343,7 @@ function BarberColumn({
       {nowOffset !== null && (
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 z-10 h-0.5 -translate-y-1/2 bg-amber-500"
+          className="pointer-events-none absolute inset-x-0 z-10 h-0.5 -translate-y-1/2 bg-cyan-500"
           style={{ top: nowOffset }}
         />
       )}
@@ -381,7 +381,6 @@ function AppointmentBlock({
     <button
       type="button"
       onClick={() => onOpen(appointment.id)}
-      aria-label={t.admin.grid.openAppointment(name, timeRange, t.status[appointment.status])}
       className={cn(
         "focus-ring absolute z-[5] flex overflow-hidden rounded-md border text-left transition-[background-color,opacity]",
         meta.block,
@@ -424,6 +423,9 @@ function AppointmentBlock({
               .join(", ")}
           </span>
         )}
+        {/* The block's visible text is its name; the status is added for AT. */}
+        {height < 40 && <span className="sr-only">, {timeRange}</span>}
+        <span className="sr-only">, {t.status[appointment.status]}</span>
       </span>
     </button>
   )

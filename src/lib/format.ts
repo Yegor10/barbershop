@@ -1,5 +1,5 @@
-/**
- * Language-neutral helpers. Anything that reads differently in Ukrainian and
+﻿/**
+ * Language-neutral helpers. Anything that reads differently in Dutch and
  * English (prices, durations, dates) lives in `@/i18n/formatters`.
  */
 import { format } from "date-fns"
@@ -17,38 +17,35 @@ export function fromDateKey(key: string): Date {
 }
 
 /**
- * Phone mask for the digits after +380.
- * Accepts whatever people type or paste ("0671234567", "+380 67 123 45 67")
- * and returns "(67) 123-45-67".
+ * Phone mask for the 9 digits after +31.
+ * Accepts whatever people type or paste ("0612345678", "+31 6 12345678",
+ * "0031612345678") and returns "61 234 5678".
  */
 export function formatPhoneInput(raw: string): string {
   let digits = raw.replace(/\D/g, "")
-  if (digits.startsWith("380") && digits.length > 9) digits = digits.slice(3)
+  if (digits.startsWith("0031")) digits = digits.slice(4)
+  else if (digits.startsWith("31") && digits.length > 9) digits = digits.slice(2)
   if (digits.startsWith("0")) digits = digits.slice(1)
   digits = digits.slice(0, 9)
 
-  if (digits.length === 0) return ""
-  if (digits.length < 3) return `(${digits}`
-  if (digits.length < 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`
-  if (digits.length < 8) {
-    return `(${digits.slice(0, 2)}) ${digits.slice(2, 5)}-${digits.slice(5)}`
-  }
-  return `(${digits.slice(0, 2)}) ${digits.slice(2, 5)}-${digits.slice(5, 7)}-${digits.slice(7)}`
+  if (digits.length <= 2) return digits
+  if (digits.length <= 5) return `${digits.slice(0, 2)} ${digits.slice(2)}`
+  return `${digits.slice(0, 2)} ${digits.slice(2, 5)} ${digits.slice(5)}`
 }
 
-/** "(67) 123-45-67" → "+380 (67) 123-45-67"; empty stays empty. */
+/** "61 234 5678" → "+31 61 234 5678"; empty stays empty. */
 export function toFullPhone(national: string): string {
   return national ? `${PHONE_COUNTRY_PREFIX} ${national}` : ""
 }
 
-/** "+380 (67) 123-45-67" → "(67) 123-45-67" */
+/** "+31 61 234 5678" → "61 234 5678" */
 export function toNationalPhone(full: string): string {
   return full.startsWith(PHONE_COUNTRY_PREFIX)
     ? full.slice(PHONE_COUNTRY_PREFIX.length).trim()
     : full
 }
 
-/** "+380 (67) 123-45-67" → "tel:+380671234567" */
+/** "+31 61 234 5678" → "tel:+31612345678" */
 export function toTelHref(phone: string): string {
   return `tel:+${phone.replace(/\D/g, "")}`
 }
